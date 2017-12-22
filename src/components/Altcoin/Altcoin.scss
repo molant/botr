@@ -1,0 +1,70 @@
+@import '~scss/variables';
+
+.altcoin {
+  margin-bottom: $space-ridiculous;
+  margin-top: $space-ridiculous;
+
+  h2 { text-transform: capitalize; }
+
+  .altcoin__control {
+    font-weight: 700;
+    margin: 0 auto;
+    max-width: $first-break-point;
+    text-align: center;
+    width: 100%;
+
+    select {
+      margin-left: $space-m;
+      text-transform: capitalize;
+
+      &:hover { cursor: pointer; }
+    }
+  }
+
+  .altcoin__values {
+    align-items: center;
+    background-color: $secondary-color;
+    color: $secondary-font-color;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0 auto $space-l;
+    max-width: $first-break-point;
+    padding: $space-xs 0 0;
+    width: 100%;
+
+    @media screen and (min-width: $first-break-point) { padding: $space-s 0; }
+
+    li {
+      display: table-cell;
+      font-size: $small-font-size;
+      line-height: $small-font-size;
+      text-align: center;
+      width: 100%;
+
+      @media screen and (min-width: $first-break-point) {
+        flex: 0 1;
+        width: 20%;
+      }
+
+      .altcoin--key {
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+
+        @media screen and (min-width: $first-break-point) { padding-bottom: $space-xxs; }
+      }
+
+      .altcoin--value {
+        font-weight: 700;
+        padding-bottom: $space-s;
+
+        @media screen and (min-width: $first-break-point) { padding-bottom: 0; }
+      }
+
+    }
+
+  }
+
+}

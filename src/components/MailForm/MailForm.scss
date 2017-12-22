@@ -1,0 +1,122 @@
+@import '~scss/variables';
+
+$height: $radius-s + size-scale($font-size-index + $line-height-shift + 2);
+
+.mail-form {
+  margin: 0 auto $space-ridiculous;
+  max-width: 2 * $first-break-point / 3;
+  position: relative;
+  width: 80%;
+  z-index: 0;
+
+
+  label { span { display: none; } }
+
+  input {
+    font-size: $font-size;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+
+    &[type='email'] {
+      background-color: $primary-font-color;
+      border: 1px solid $primary-color;
+      border-radius: $radius-s;
+      font-size: $font-size;
+      height: size-scale($font-size-index + $line-height-shift + 2);
+      position: relative;
+      z-index: 1;
+
+      &:disabled {
+        border-color: $primary-color-disabled;
+        color: $font-color-disabled;
+      }
+
+      &::placeholder { color: $color-red; }
+    }
+  }
+
+  .mail-form--submit {
+    height: $height;
+    margin: 0;
+    margin-top: 0 - $radius-s;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+
+    input {
+      &[type='submit'] {
+        background-color: $primary-color;
+        border: 0;
+        border-radius: 0 0 $radius-s $radius-s;
+        color: $primary-font-color;
+        cursor: pointer;
+        font-size: $font-size;
+        height: 100%;
+        left: 0;
+        line-height: $line-height;
+        position: relative;
+        top: 0;
+        transition: top .32s ease-out;
+        z-index: 1;
+
+        &:disabled { background-color: $primary-color-disabled; }
+      }
+    }
+
+    &::after, &::before {
+      border-radius: 50%;
+      color: $primary-font-color;
+      content: ' ';
+      display: block;
+      left: 50%;
+      position: absolute;
+      top: $height / 6;
+      z-index: 0;
+    }
+
+    &::after {
+      animation: MailFormLoaderAnim 3s linear infinite;
+      border: 3px solid transparent;
+      border-left: 3px solid $secondary-color;
+      border-top: 3px solid $secondary-color;
+      height: 1 + (2 * $height / 3);
+      margin-left: -1 + (-2 * $height / 6);
+      margin-top: -1px;
+      width: 1 + (2 * $height / 3);
+    }
+
+    &::before {
+      border: 1px solid $primary-color-disabled;
+      height: 2 * $height / 3;
+      margin-left: -2 * $height / 6;
+      width: 2 * $height / 3;
+    }
+
+    &.loading {
+      input { &[type='submit'] { top: 0 - $height; } }
+    }
+
+  }
+
+}
+
+@keyframes MailFormLoaderAnim {
+  0% { transform: rotateZ(0deg); }
+  75% { transform: rotateZ(240deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
+.end {
+  .mail-form--submit {
+    &::before {
+      border-color: $primary-color-disabled;
+    }
+
+    &::after {
+      border-left-color: $colored-bg-font-color;
+      border-top-color: $colored-bg-font-color;
+    }
+  }
+}

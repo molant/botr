@@ -1,0 +1,57 @@
+@import '~scss/variables';
+
+.toaster--container {
+  bottom: 0;
+  color: $primary-font-color;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.toaster--title { font-weight: 700; }
+.toaster--message { word-wrap: break-word; }
+
+.toaster--inner {
+  background-color: $success-color;
+
+  background-image:  url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==); // sass-lint:disable-line no-misspelled-properties, space-after-colon, space-around-operator, space-after-comma
+
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  border-radius: $radius-s;
+  box-shadow: 0 0 12px $shadow-color;
+  display: none;
+  margin-bottom: $space-xs;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 2 * $first-break-point / 3;
+  opacity: .95;
+  overflow: hidden;
+  padding: $font-size $font-size $font-size $space-xxl;
+  pointer-events: auto;
+  position: relative;
+  width: 300px;
+
+  &.toaster--fadein {
+    animation: ToasterFadeInAnim .32s linear;
+    display: block;
+  }
+
+  &.toaster--fadeout {
+    animation: ToasterFadeOutAnim .32s linear;
+    display: block;
+    opacity: 0;
+  }
+}
+
+@keyframes ToasterFadeInAnim {
+  0% { opacity: 0; }
+  100% { opacity: .95; }
+}
+
+@keyframes ToasterFadeOutAnim {
+  0% { opacity: .95; }
+  100% { opacity: 0; }
+}

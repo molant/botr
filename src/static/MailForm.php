@@ -146,8 +146,8 @@ function mailform_check($email) {
   ]);
 
   foreach ($mxs as $host => $weight) {
-    if ($sock = fsockopen($host, 587, $errno, $errstr, 60)) {
-      stream_set_timeout($sock, 60);
+    if ($sock = fsockopen($host, 25, $errno, $errstr, 60)) {
+      stream_set_timeout($sock, 20);
       break;
     }
   }

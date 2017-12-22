@@ -1,0 +1,48 @@
+@import '~scss/variables';
+
+main {
+
+  p {
+    font-size: $font-size;
+    line-height: $line-height;
+    margin: 0 auto $line-height;
+    max-width: $first-break-point;
+    padding: 0 $space-xl;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-character;
+    width: 100%;
+    word-break: normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $first-break-point;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: size-scale($font-size-index + 4);
+    line-height: size-scale($font-size-index + 4);
+    margin-bottom: (4 * $line-height - size-scale($font-size-index + 4)) / 2;
+    margin-top: (4 * $line-height - size-scale($font-size-index + 4)) / 2;
+  }
+
+  h2 {
+    font-size: size-scale($font-size-index + 2);
+    padding: 0 $space-xl;
+
+    @media screen and (min-width: $first-break-point + 25) {
+      padding: 0;
+    }
+  }
+
+  h3 {
+    font-size: size-scale($font-size-index + 2);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+}

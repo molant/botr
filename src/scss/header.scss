@@ -1,0 +1,11 @@
+@import '~scss/variables';
+
+
+header {
+  @include zindex-stack;
+
+  margin: 0 auto;
+  max-width: $first-break-point;
+  padding: $space-m;
+  width: 100%;
+}

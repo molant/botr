@@ -52,7 +52,7 @@ class Toast extends Component {
   *
   * @private
   */
-  _shoe() {
+  _show() {
     if (this.state !== 'hidden') { return; }
 
     this.$inner.addClass('toaster--fadein');

@@ -69,11 +69,13 @@ class MailForm extends Component {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       },
-      body: data
+      body: data.toString()
     };
 
     console.log('Sending form data');
-    console.log();
+    console.log('To:', this.endpoint);
+    console.log('Data:', data.toString());
+    console.log('Options:', options);
 
     // 5.3 Send request to endpoint
     fetch(this.endpoint, options)
@@ -87,6 +89,7 @@ class MailForm extends Component {
       // Something went wrong -> reject
       if (!raw.success) { return Promise.reject(raw); }
 
+      console.log('Response:', raw);
       // Everything ok, emit success event and hide loader
       this.emit('success', email);
       window.setTimeout(() => { this.$submit_wrapper.removeClass('loading'); } , 320);

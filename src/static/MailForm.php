@@ -125,6 +125,8 @@ function mailform_check($email) {
 
   if ($score <= 0) { return 'NO_MX'; }
 
+  /*
+
   // 6. SMTP Validation
   // Usually won't work localy, ISPs block the SMTP ports
   // At this point, score = 1
@@ -186,7 +188,7 @@ function mailform_check($email) {
   mailform_send($sock, "quit");
 
   fclose($sock);
-
+  */
   return $score;
 }
 

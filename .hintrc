@@ -13,7 +13,7 @@
         "stylish"
     ],
     "ignoredUrls": [],
-    "rules": {
+    "hints": {
         "amp-validator": "off",
         "apple-touch-icons": "error",
         "axe": "error",
@@ -39,5 +39,5 @@
         "validate-set-cookie-header": "error",
         "x-content-type-options": "error"
     },
-    "rulesTimeout": 120000
+    "hintsTimeout": 120000
 }
